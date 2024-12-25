@@ -8,6 +8,9 @@ import express from 'express'
  import helmet from 'helmet'
 
  import connectDB from './config/connectDB.js'
+
+import userRouter from './route/user.route.js' //importing routes in index file
+
 const app = express()
 app.use(express.json())
 app.use(cookieParser())
@@ -30,6 +33,10 @@ app.get("/",(request,response)=>{
         message:"server is running",PORT
     })
 })
+
+app.use('/api/user',userRouter) //calling routes
+
+
 
 const PORT =8080|| process.env.PORT
 

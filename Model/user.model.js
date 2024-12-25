@@ -1,17 +1,17 @@
-import mongoose, { Schema } from "mongoose";
-const userSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+const userSchema =new mongoose.Schema({
     name:{
         type:String,
-        required:true,
+        required:true
 
     },
     email:{
         type:String,
-        required:[true,"provided email"] //this is when u want to show error
+        required:[true,"provide email"] //this is when u want to show error
     },
     password:{
         type:String,
-        required:[true,"provided password"]
+        required:[true,"provide password"]
     },
     avatar:{
         type:String,
@@ -39,19 +39,19 @@ const userSchema = new mongoose.Schema({
         default:"Active" //when new user comes
     },
     address_detail:[{
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"address"  //iss nama se ek or schema reheaga uska referal he
     }
 ],
-Shooping_cart:[
+shopping_cart:[
     {
-        type:mongoose.Schema.objectId,
-        ref: "CardProduct"
+        type:mongoose.Schema.ObjectId,
+        ref: "CartProduct"
     }
 ],
 orderHistory:[
     {
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"order"
     }
 ],
@@ -78,3 +78,6 @@ forgot_password_otp:
 const UserModel = mongoose.model("User",userSchema) //(name that you want to show in db,name you give this whole model)
 
 export default UserModel
+
+
+
